@@ -3,11 +3,11 @@
         :class="[
             bg,
             {
-                'p-3 text-sm': size === 'lg',
+                'py-3 px-3 text-sm': size === 'lg',
                 'py-2 px-5 text-xs': size === 'sm'
             }
         ]"
-        class="uppercase w-full text-white rounded tracking-wider font-medium"
+        class="bg-indigo-600 rounded-md w-full text-white text-medium hover:bg-indigo-500 tracking-wider font-medium uppercase transition leading-snug"
         :type="type"
         @click="$emit('click')"
     >

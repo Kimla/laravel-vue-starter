@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-8">
+    <div class="mb-6 text-center">
         <h1 class="text-2xl mb-1">
             {{ heading }}
         </h1>

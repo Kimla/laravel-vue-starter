@@ -11,7 +11,7 @@
             :name="name"
             :type="type"
             :autocomplete="autocomplete"
-            class="bg-gray-200 p-3 block w-full rounded transition"
+            class="form-input block w-full rounded-md focus:border-indigo-600 transition"
             required
             @input="$emit('input', $event.target.value)"
         >

@@ -38,6 +38,14 @@ export default {
 html,
 body {
     height: 100%;
+    font-size: 14px;
+}
+
+@media (min-width: 1200px) {
+    html,
+    body {
+        font-size: 16px;
+    }
 }
 
 #app {
@@ -49,6 +57,19 @@ body {
     font-size: 16px;
     font-weight: 400;
     min-height: 100%;
+}
+
+.form-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border-color: #e2e8f0;
+    border-width: 1px;
+    border-radius: .25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: .5rem .75rem;
 }
 
 .fade-enter,
