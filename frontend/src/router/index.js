@@ -8,19 +8,42 @@ const routes = [
         path: '/',
         name: 'Home',
         meta: { requiresAuth: true },
-        component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+        component: () =>
+            import(/* webpackChunkName: "home" */ '../views/Home.vue')
     },
     {
         path: '/login',
         name: 'Login',
         meta: { guestOnly: true },
-        component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
+        component: () =>
+            import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
     },
     {
         path: '/register',
         name: 'Register',
         meta: { guestOnly: true },
-        component: () => import(/* webpackChunkName: "register" */ '../views/auth/Register.vue')
+        component: () =>
+            import(
+                /* webpackChunkName: "register" */ '../views/auth/Register.vue'
+            )
+    },
+    {
+        path: '/forgot-password',
+        name: 'ForgotPassword',
+        meta: { guestOnly: true },
+        component: () =>
+            import(
+                /* webpackChunkName: "forgot-password" */ '../views/auth/ForgotPassword.vue'
+            )
+    },
+    {
+        path: '/reset-password',
+        name: 'ResetPassword',
+        meta: { guestOnly: true },
+        component: () =>
+            import(
+                /* webpackChunkName: "reset-password" */ '../views/auth/ResetPassword.vue'
+            )
     }
 ];
 

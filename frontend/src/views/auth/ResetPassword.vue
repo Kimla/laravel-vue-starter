@@ -1,49 +1,34 @@
 <template>
     <AuthWrapper>
         <AuthTop
-            heading="Welcome"
-            text="Please login to continue"
+            heading="Reset password"
+            text="Please enter your new password to continue"
         />
 
         <form
             class="mb-6"
-            @submit.prevent="login"
+            @submit.prevent="submitHandler"
         >
-            <AuthField
-                v-model="email"
-                label="Email"
-                name="email"
-                type="email"
-                autocomplete="username"
-            />
-
             <AuthField
                 v-model="password"
                 label="Password"
-                name="password"
+                name="registration_password"
                 type="password"
                 class="mb-8"
-                autocomplete="current-password"
+                autocomplete="new-password"
             />
 
             <Button
                 :loading="loading"
-                label="Sign in"
+                label="Submit"
                 type="submit"
             />
         </form>
 
-        <div class="flex justify-between">
-            <AuthLink
-                title="Forgot your password?"
-                url="/forgot-password"
-            />
-
-            <AuthLink
-                title="Register"
-                url="/register"
-            />
-        </div>
+        <AuthLink
+            title="Back to sign in"
+            url="/login"
+        />
     </AuthWrapper>
 </template>
 
@@ -74,12 +59,8 @@ export default {
     },
 
     methods: {
-        async login () {
-            await this.$store.dispatch('auth/login', this.$data);
-
-            if (this.authUser) {
-                this.$router.push(this.$route.query.redirect || '/');
-            }
+        async submitHandler () {
+            console.log('test');
         }
     }
 };
