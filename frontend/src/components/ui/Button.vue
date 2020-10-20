@@ -5,7 +5,7 @@
         ]"
         :type="type"
         :disabled="loading"
-        class="py-4 px-6 relative rounded-md w-full text-xl tracking-wider font-medium uppercase transition leading-snug"
+        class="py-4 px-6 relative rounded-md w-full text-xl tracking-wider font-semibold uppercase transition leading-snug"
         @click="$emit('click')"
     >
         {{ label }}

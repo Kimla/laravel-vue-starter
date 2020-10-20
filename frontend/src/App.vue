@@ -73,7 +73,7 @@ html {
 }
 
 #app {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #161e2e;
