@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register(Request $request) : object
+    public function register(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -27,7 +27,7 @@ class AuthController extends Controller
         return $this->authedResponse(__('auth.register'));
     }
 
-    public function login(Request $request) : object
+    public function login(Request $request)
     {
         if (! Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
@@ -38,7 +38,7 @@ class AuthController extends Controller
         return $this->authedResponse(__('auth.login'));
     }
 
-    public function logout() : object
+    public function logout()
     {
         Auth::logout();
 
@@ -54,7 +54,7 @@ class AuthController extends Controller
         ], 200);
     }
 
-    protected function authedResponse(string $message) : object
+    protected function authedResponse(string $message)
     {
         $user = Auth::user();
         $token = $user->createToken('token-name');
