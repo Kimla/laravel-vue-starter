@@ -6,7 +6,7 @@
         />
 
         <form
-            class="mb-5"
+            class="mb-6"
             @submit.prevent="login"
         >
             <AuthField
@@ -22,7 +22,7 @@
                 label="Password"
                 name="password"
                 type="password"
-                class="mb-6"
+                class="mb-8"
                 autocomplete="current-password"
             />
 
@@ -73,10 +73,12 @@ export default {
     },
 
     methods: {
-        login () {
-            this.$store.dispatch('auth/login', this.$data).then(() => {
+        async login () {
+            await this.$store.dispatch('auth/login', this.$data);
+
+            if (this.authUser) {
                 this.$router.push(this.$route.query.redirect || '/');
-            });
+            }
         }
     }
 };

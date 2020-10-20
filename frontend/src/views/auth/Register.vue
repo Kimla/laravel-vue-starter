@@ -6,7 +6,7 @@
         />
 
         <form
-            class="mb-5"
+            class="mb-6"
             @submit.prevent="register"
         >
             <AuthField
@@ -29,7 +29,7 @@
                 label="Password"
                 name="registration_password"
                 type="password"
-                class="mb-6"
+                class="mb-8"
                 autocomplete="new-password"
             />
 
@@ -52,6 +52,7 @@ import AuthTop from '@/components/auth/AuthTop';
 import AuthField from '@/components/auth/AuthField';
 import AuthLink from '@/components/auth/AuthLink';
 import Button from '@/components/ui/Button';
+import { mapGetters } from 'vuex';
 
 export default {
     components: {
@@ -68,11 +69,17 @@ export default {
         password: null
     }),
 
+    computed: {
+        ...mapGetters('auth', ['authUser', 'loading'])
+    },
+
     methods: {
-        register () {
-            this.$store.dispatch('auth/register', this.$data).then(() => {
+        async register () {
+            await this.$store.dispatch('auth/register', this.$data);
+
+            if (this.authUser) {
                 this.$router.push('/');
-            });
+            }
         }
     }
 };

@@ -1,13 +1,6 @@
 <template>
     <button
-        :class="[
-            bg,
-            {
-                'py-3 px-3 text-sm': size === 'lg',
-                'py-2 px-5 text-xs': size === 'sm'
-            }
-        ]"
-        class="bg-indigo-600 rounded-md w-full text-white text-medium hover:bg-indigo-500 tracking-wider font-medium uppercase transition leading-snug"
+        class="py-4 px-6 bg-indigo-600 rounded-md w-full text-white text-xl hover:bg-indigo-500 tracking-wider font-medium uppercase transition leading-snug"
         :type="type"
         @click="$emit('click')"
     >

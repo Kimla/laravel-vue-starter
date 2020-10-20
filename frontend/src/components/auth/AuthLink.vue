@@ -2,7 +2,7 @@
     <div class="text-center">
         <router-link
             :to="url"
-            class="text-indigo-600 font-medium tracking-wide text-sm hover:text-indigo-500"
+            class="text-indigo-600 font-medium tracking-wide text-xl hover:text-indigo-500"
         >
             {{ title }}
         </router-link>

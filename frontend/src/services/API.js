@@ -1,12 +1,4 @@
-/*
- * This is the initial API interface
- * we set the base URL for the API
- * store the token in local storage
- * append the token to all requests
- ? Both request & response are logged to the console.
- ! Remove the console logs for production.
-*/
-
+import Vue from 'vue';
 import axios from 'axios';
 import store from '../store';
 
@@ -22,9 +14,11 @@ export const apiClient = axios.create({
 apiClient.interceptors.request.use(
     function (config) {
         const token = window.localStorage.getItem('token');
+
         if (token != null) {
             config.headers.Authorization = `Bearer ${token}`;
         }
+
         return config;
     },
     function (error) {
@@ -37,16 +31,23 @@ apiClient.interceptors.request.use(
  */
 apiClient.interceptors.response.use(
     response => {
+        if (response?.data?.message) {
+            Vue.toasted.success(response.data.message);
+        }
+
         return response;
     },
     function (error) {
-        if (error) {
-            window.alert(error.message);
+        if (error?.response?.data?.message) {
+            Vue.toasted.error(error.response.data.message);
+        } else {
+            Vue.toasted.error('Something went wrong, try again later');
         }
 
         if (error.response.status === 401) {
             store.dispatch('auth/logout');
         }
+
         return Promise.reject(error.response);
     }
 );

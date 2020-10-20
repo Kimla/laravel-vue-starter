@@ -1,9 +1,9 @@
 <template>
-    <div class="mb-6 text-center">
-        <h1 class="text-2xl mb-1">
+    <div class="mb-8 text-center">
+        <h1 class="text-4xl mb-2">
             {{ heading }}
         </h1>
-        <p>
+        <p class="text-2xl">
             {{ text }}
         </p>
     </div>

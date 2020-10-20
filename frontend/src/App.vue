@@ -36,13 +36,13 @@ export default {
 html,
 body {
     height: 100%;
-    font-size: 14px;
+    font-size: 10px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1600px) {
     html,
     body {
-        font-size: 16px;
+        font-size: 12px;
     }
 }
 
@@ -52,7 +52,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: #161e2e;
     background-color: #fff;
-    font-size: 16px;
     font-weight: 400;
     min-height: 100%;
 }
@@ -64,10 +63,10 @@ body {
     background-color: #fff;
     border-color: #e2e8f0;
     border-width: 1px;
-    border-radius: .25rem;
-    font-size: 1rem;
+    border-radius: 0.375rem;
+    font-size: 1.6rem;
     line-height: 1.5;
-    padding: .5rem .75rem;
+    padding: 0.675rem 1rem;
 }
 
 .fade-enter,

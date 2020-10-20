@@ -1,6 +1,6 @@
 <template>
-    <div class="flex justify-center items-center h-screen bg-gray-200 px-6 py-5">
-        <div class="p-6 max-w-sm w-full bg-white shadow-md rounded-md m-auto">
+    <div class="flex justify-center items-center h-screen bg-gray-200 px-10 py-6">
+        <div class="py-10 px-12 max-w-lg w-full bg-white shadow-md rounded-md m-auto">
             <slot />
         </div>
     </div>

@@ -1,0 +1,22 @@
+.toasted-container .toasted {
+    font-size: 1.4rem;
+    padding: 1.2rem 1.5rem;
+    font-weight: 400;
+}
+
+.toasted .primary,
+.toasted.toasted-primary {
+    @apply bg-gray-800;
+}
+
+.toasted.toasted-primary.error {
+    @apply bg-red-600;
+}
+
+.toasted.toasted-primary.warning {
+    @apply bg-orange-600;
+}
+
+.toasted.toasted-primary.success {
+    @apply bg-green-600;
+}

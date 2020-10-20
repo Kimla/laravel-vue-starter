@@ -1,11 +1,12 @@
 <template>
-    <div class="mb-4">
+    <div class="mb-5">
         <label
             :for="name"
-            class="inline-block mb-2"
+            class="text-2xl inline-block mb-2"
         >
             {{ label }}
         </label>
+
         <input
             :id="name"
             :name="name"
