@@ -12,7 +12,7 @@
             :name="name"
             :type="type"
             :autocomplete="autocomplete"
-            class="form-input block w-full rounded-md focus:border-indigo-600 transition"
+            class="form-input block w-full rounded-md focus:border-primary-600 transition"
             required
             @input="$emit('input', $event.target.value)"
         >

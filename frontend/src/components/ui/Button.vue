@@ -1,7 +1,7 @@
 <template>
     <button
         :class="[
-            loading ? 'bg-indigo-500 text-indigo-500 cursor-default' : 'bg-indigo-600 hover:bg-indigo-500 text-white '
+            loading ? 'bg-primary-500 text-primary-500 cursor-default' : 'bg-primary-600 hover:bg-primary-500 text-white '
         ]"
         :type="type"
         :disabled="loading"
