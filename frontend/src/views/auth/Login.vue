@@ -27,6 +27,7 @@
             />
 
             <Button
+                :loading="loading"
                 label="Sign in"
                 type="submit"
             />

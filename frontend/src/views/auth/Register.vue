@@ -34,6 +34,7 @@
             />
 
             <Button
+                :loading="loading"
                 label="Register"
                 type="submit"
             />
