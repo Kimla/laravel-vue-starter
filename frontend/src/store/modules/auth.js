@@ -85,6 +85,41 @@ export const actions = {
                 commit('SET_LOADING', false);
                 commit('SET_ERROR', error.data ? error.data.message : error);
             });
+    },
+
+    forgotPassword ({ state, commit }, payload) {
+        if (state.loading) {
+            return;
+        }
+
+        commit('SET_LOADING', true);
+
+        return AuthService.forgotPassword(payload)
+            .then(() => {
+                commit('SET_LOADING', false);
+            })
+            .catch(error => {
+                commit('SET_LOADING', false);
+                commit('SET_ERROR', error.data ? error.data.message : error);
+            });
+    },
+
+    resetPassword ({ state, commit }, payload) {
+        if (state.loading) {
+            return;
+        }
+
+        commit('SET_LOADING', true);
+
+        return AuthService.resetPassword(payload)
+            .then(() => {
+                router.push('/login');
+                commit('SET_LOADING', false);
+            })
+            .catch(error => {
+                commit('SET_LOADING', false);
+                commit('SET_ERROR', error.data ? error.data.message : error);
+            });
     }
 };
 

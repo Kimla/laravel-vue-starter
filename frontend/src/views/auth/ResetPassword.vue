@@ -50,7 +50,6 @@ export default {
     },
 
     data: () => ({
-        email: null,
         password: null
     }),
 
@@ -59,8 +58,13 @@ export default {
     },
 
     methods: {
-        async submitHandler () {
-            console.log('test');
+        submitHandler () {
+            this.$store.dispatch('auth/resetPassword', {
+                password: this.password,
+                password_confirmation: this.password,
+                token: this.$route.params.token,
+                email: this.$route.query.email
+            });
         }
     }
 };

@@ -58,8 +58,8 @@ export default {
     },
 
     methods: {
-        async submitHandler () {
-            console.log('test');
+        submitHandler () {
+            this.$store.dispatch('auth/forgotPassword', this.$data);
         }
     }
 };

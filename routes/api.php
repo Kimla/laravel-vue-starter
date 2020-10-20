@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +24,8 @@ Route::get('/sanctum/csrf-cookie', function () {
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::post('/auth/logout', [AuthController::class, 'logout']);
 Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/auth/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail']);
+Route::post('/auth/reset-password', [ResetPasswordController::class, 'reset']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/auth/user', [AuthController::class, 'user']);
