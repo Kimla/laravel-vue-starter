@@ -36,13 +36,39 @@ export default {
 html,
 body {
     height: 100%;
+}
+
+html {
     font-size: 10px;
 }
 
-@media (min-width: 1600px) {
-    html,
-    body {
+@media (min-width: 640px) {
+    html {
+        font-size: 10.5px;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 11.5px;
+    }
+}
+
+@media (min-width: 1280px) {
+    html {
         font-size: 12px;
+    }
+}
+
+@media (min-width: 1680px) {
+    html {
+        font-size: 12.5px;
     }
 }
 
