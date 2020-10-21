@@ -4,14 +4,14 @@
             <div class="py-8">
                 <div class="mb-10">
                     <h2 class="text-3xl font-semibold leading-tight">
-                        Edit User
+                        {{ userId ? 'Edit User' : 'Create User' }}
                     </h2>
                 </div>
 
                 <form
                     v-if="user"
                     class="py-10 px-12 w-full bg-white shadow-md rounded-md m-auto"
-                    @submit.prevent="update"
+                    @submit.prevent="handleSubmit"
                 >
                     <div class="mb-5">
                         <label
@@ -31,7 +31,7 @@
                         >
                     </div>
 
-                    <div class="mb-10">
+                    <div class="mb-5">
                         <label
                             for="email"
                             class="text-2xl inline-block mb-2"
@@ -49,9 +49,27 @@
                         >
                     </div>
 
+                    <div class="mb-10">
+                        <label
+                            for="email"
+                            class="text-2xl inline-block mb-2"
+                        >
+                            Password
+                        </label>
+
+                        <input
+                            id="password"
+                            v-model="user.password"
+                            name="password"
+                            type="password"
+                            class="form-input block w-full rounded-md focus:border-primary-600 transition"
+                            required
+                        >
+                    </div>
+
                     <div class="flex justify-end">
                         <Button
-                            label="Update"
+                            :label="userId ? 'Update' : 'Create'"
                             type="submit"
                             class="max-w-xs"
                         />
@@ -77,19 +95,47 @@ export default {
         user: null
     }),
 
-    mounted () {
-        this.getUser();
+    computed: {
+        userId () {
+            return this.$route.params.id;
+        }
+    },
+
+    async mounted () {
+        this.user = await this.getUser();
     },
 
     methods: {
         async getUser () {
+            if (!this.userId) {
+                return {
+                    name: null,
+                    email: null,
+                    password: null
+                };
+            }
+
             const res = await UserService.get(this.$route.params.id);
 
-            this.user = res.data;
+            return res.data;
+        },
+
+        async handleSubmit () {
+            if (this.userId) {
+                this.update();
+            } else {
+                this.create();
+            }
+        },
+
+        async create () {
+            const res = await UserService.create(this.user);
+
+            console.log(res);
         },
 
         async update () {
-            const res = await UserService.update(this.$route.params.id, this.user);
+            const res = await UserService.update(this.userId, this.user);
 
             console.log(res);
         }

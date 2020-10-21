@@ -9,6 +9,10 @@ export default {
         return API.apiClient.get(`/admin/users/${userId}`);
     },
 
+    create (payload) {
+        return API.apiClient.post('/admin/users', payload);
+    },
+
     update (userId, payload) {
         return API.apiClient.put(`/admin/users/${userId}`, payload);
     }

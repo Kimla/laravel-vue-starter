@@ -1,8 +1,17 @@
 <template>
     <Main>
-        <h2 class="text-2xl font-semibold leading-tight">
-            Users
-        </h2>
+        <div class="mb-2 flex items-center justify-between">
+            <h2 class="text-2xl font-semibold leading-tight">
+                Users
+            </h2>
+
+            <router-link
+                to="/users/new"
+                class="font-semibold text-lg text-primary-600 hover:text-primary-500"
+            >
+                Add new
+            </router-link>
+        </div>
 
         <BaseTable>
             <TableHeader>

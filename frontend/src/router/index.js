@@ -19,8 +19,15 @@ const routes = [
             import(/* webpackChunkName: "users" */ '../views/Users.vue')
     },
     {
+        path: '/users/new',
+        name: 'CreateUser',
+        meta: { requiresAuth: true },
+        component: () =>
+            import(/* webpackChunkName: "user" */ '../views/User.vue')
+    },
+    {
         path: '/users/:id',
-        name: 'User',
+        name: 'EditUser',
         meta: { requiresAuth: true },
         component: () =>
             import(/* webpackChunkName: "user" */ '../views/User.vue')
