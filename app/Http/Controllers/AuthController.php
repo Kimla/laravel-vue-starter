@@ -22,6 +22,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        $user->assignRole('user');
+
         Auth::guard()->login($user);
 
         return $this->authedResponse(__('auth.register'));

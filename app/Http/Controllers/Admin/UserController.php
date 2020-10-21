@@ -33,6 +33,8 @@ class UserController extends Controller
             'password' => bcrypt(request('password')),
         ]);
 
+        $user->assignRole('user');
+
         return [
             'message' => 'Created',
             'user' => $user,
