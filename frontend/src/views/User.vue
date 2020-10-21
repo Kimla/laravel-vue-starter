@@ -49,7 +49,10 @@
                         >
                     </div>
 
-                    <div class="mb-10">
+                    <div
+                        v-if="!userId"
+                        class="mb-5"
+                    >
                         <label
                             for="email"
                             class="text-2xl inline-block mb-2"
@@ -67,8 +70,9 @@
                         >
                     </div>
 
-                    <div class="flex justify-end">
+                    <div class="flex justify-end mt-10">
                         <Button
+                            :loading="loading"
                             :label="userId ? 'Update' : 'Create'"
                             type="submit"
                             class="max-w-xs"
@@ -92,6 +96,7 @@ export default {
     },
 
     data: () => ({
+        loading: false,
         user: null
     }),
 
@@ -121,11 +126,15 @@ export default {
         },
 
         async handleSubmit () {
+            this.loading = true;
+
             if (this.userId) {
-                this.update();
+                await this.update();
             } else {
-                this.create();
+                await this.create();
             }
+
+            this.loading = false;
         },
 
         async create () {
