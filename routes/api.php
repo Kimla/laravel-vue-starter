@@ -28,8 +28,10 @@ Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail']);
 Route::post('/auth/reset-password', [ResetPasswordController::class, 'reset']);
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/auth/user', [AuthController::class, 'user']);
 });
 
-Route::get('/admin/users', [UserController::class, 'index']);
+Route::group(['middleware' => ['auth:sanctum', 'role:admin']], function () {
+    Route::get('/admin/users', [UserController::class, 'index']);
+});
