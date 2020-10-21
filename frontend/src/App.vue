@@ -69,6 +69,7 @@ html {
 @media (min-width: 1680px) {
     html {
         font-size: 12.5px;
+        font-size: 16px;
     }
 }
 

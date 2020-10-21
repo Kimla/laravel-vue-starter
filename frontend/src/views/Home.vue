@@ -1,22 +1,17 @@
 <template>
-    <div class="home py-8 px-6">
-        <h1 class="text-2xl mb-4">
-            Home
-        </h1>
-
-        <Button
-            label="Log out"
-            @click="logout"
-        />
-    </div>
+    <Main>
+        <Table />
+    </Main>
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
+import Main from '@/components/layout/Main';
+import Table from '@/components/Table';
 
 export default {
     components: {
-        Button
+        Main,
+        Table
     },
 
     methods: {
