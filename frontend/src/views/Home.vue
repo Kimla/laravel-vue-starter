@@ -7,6 +7,7 @@
 <script>
 import Main from '@/components/layout/Main';
 import Table from '@/components/Table';
+import * as API from '@/services/API.js';
 
 export default {
     components: {
@@ -14,9 +15,15 @@ export default {
         Table
     },
 
+    mounted () {
+        this.users();
+    },
+
     methods: {
-        logout () {
-            this.$store.dispatch('auth/logout');
+        async users () {
+            const res = await API.apiClient.get('/admin/users');
+
+            console.log(res);
         }
     }
 };

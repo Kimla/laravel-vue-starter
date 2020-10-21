@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\AuthController;
@@ -30,3 +31,5 @@ Route::post('/auth/reset-password', [ResetPasswordController::class, 'reset']);
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/auth/user', [AuthController::class, 'user']);
 });
+
+Route::get('/admin/users', [UserController::class, 'index']);
