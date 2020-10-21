@@ -116,7 +116,11 @@
         </nav>
 
         <div class="px-16 py-4 text-gray-700 bg-gray-200 h-screen w-screen">
-            <slot />
+            <div class="container mx-auto px-4 sm:px-8">
+                <div class="py-8">
+                    <slot />
+                </div>
+            </div>
         </div>
     </div>
 </template>
