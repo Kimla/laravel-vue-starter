@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li class="mb-6">
-                            <a href="#">
+                            <router-link to="/users">
                                 <span>
                                     <svg
                                         class="fill-current h-5 w-5 mx-auto text-gray-300 hover:text-green-500"
@@ -45,7 +45,7 @@
                                         />
                                     </svg>
                                 </span>
-                            </a>
+                            </router-link>
                         </li>
                         <li class="mb-6">
                             <a href="#">
